@@ -1,0 +1,235 @@
+@-webkit-keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+}
+
+.nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 0;
+  background-color: #032541;
+  transition: all 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+.nav-logo {
+  margin-right: 2rem;
+}
+
+.nav-logo h4 {
+  font-family: "Source Sans Pro", sans-serif !important;
+  color: #48bb78 !important;
+  font-weight: 700 !important;
+  font-size: 1.8rem;
+}
+
+@media (max-width: 37.5em) {
+  .nav-logo h4 {
+    font-size: 1.2rem;
+  }
+}
+
+.nav-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-left ul {
+  display: flex;
+  justify-content: space-between;
+  width: 15rem;
+  transition: transform 0.5s ease-in-out;
+}
+
+@media (max-width: 56.25em) {
+  .nav-left ul {
+    position: absolute;
+    left: 0;
+    height: 92vh;
+    top: 8vh;
+    background-color: #032541;
+    display: inline-block;
+    text-align: center;
+    padding: 3rem 0;
+    width: 60%;
+    transform: translateX(-100%);
+  }
+}
+
+.nav-left ul li {
+  list-style: none;
+}
+
+@media (max-width: 56.25em) {
+  .nav-left ul li {
+    margin: 3rem 0;
+    opacity: 0;
+  }
+}
+
+.nav-left ul a {
+  font-family: "Source Sans Pro", sans-serif !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-burger {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 56.25em) {
+  .nav-burger {
+    display: block;
+  }
+}
+
+.nav-burger div {
+  width: 2.5rem;
+  height: 2.3px;
+  background-color: #fff;
+  margin: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-active {
+  transform: translateX(0%) !important;
+}
+
+.nav-search-box {
+  background-color: #1a3b54;
+  height: 2.3rem;
+  border-radius: 2.5rem;
+}
+
+@media (max-width: 56.25em) {
+  .nav-search-box {
+    height: 1.8rem;
+    border-radius: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-search-box:hover > .nav-search-box__text {
+    width: 13rem;
+    padding: 0 1rem;
+  }
+}
+
+.nav-search-box__text {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: #fff;
+  transition: all 0.4s ease;
+  line-height: 2.2rem;
+  width: 0rem;
+}
+
+@media (max-width: 56.25em) {
+  .nav-search-box__text {
+    width: 7rem;
+    line-height: 1.7rem;
+    font-size: 0.8rem;
+    margin-left: 8px;
+  }
+}
+
+.nav-search-box__btn {
+  color: #fff;
+  float: right;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  background-color: #1a3b54;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 56.25em) {
+  .nav-search-box__btn {
+    width: 1.2rem;
+    height: 1.7rem;
+    margin-right: 5px;
+  }
+}
+
+.navRotate .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.navRotate .line2 {
+  opacity: 0;
+}
+
+.navRotate .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.home-container {
+  background-image: linear-gradient(rgba(3, 37, 65, 0.75), rgba(26, 59, 84, 0.65)), url(/images/bg-3.jpg?92bf429f55da0cc5e8162f226af19df4);
+  background-position: top;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 60vh !important;
+}
+
+.home-container__text {
+  margin: 0 auto;
+  width: 70%;
+  padding: 4rem 1rem 2rem;
+}
+
+.home-container__text h1 {
+  font-family: "Source Sans Pro", sans-serif !important;
+  color: #fff !important;
+  font-weight: 900 !important;
+  font-size: 3.5rem;
+  letter-spacing: 0.5rem;
+}
+
+.home-container__text h3 {
+  font-family: "Source Sans Pro", sans-serif !important;
+  color: #fff !important;
+  font-weight: 900 !important;
+  font-size: 2.3rem;
+  letter-spacing: 0.5rem;
+}
+
+.movie-info {
+  margin-top: 5.5rem;
+}
+
+.movie-info__img {
+  width: -moz-available;
+}
+
