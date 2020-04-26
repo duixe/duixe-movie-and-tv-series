@@ -28,10 +28,12 @@
 	</div>
 	<div class="nav-left">
 		<div class="nav-logo">
-			<h4>D M&TV</h4>
+			<a href="{{ route('movies.index') }}">
+				<h4>D M&TV</h4>
+			</a>
 		</div>
 		<ul class="nav-links">
-			<li><a href="#">Movies</a></li>
+			<li><a href="{{ route('movies.index') }}">Movies</a></li>
 			<li><a href="#">TV Shows</a></li>
 			<li><a href="#">Actors</a></li>
 		</ul>
