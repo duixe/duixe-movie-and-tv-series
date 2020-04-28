@@ -1,10 +1,20 @@
-  <div class="nav-search-box">
-		<input wire:model.debounce500ms="search" class="nav-search-box__text" type="text" placeholder="Search movies">
+  <div class="nav-search-box" x-data="{ isOpen: true }" @click.away="isOpen = false">
+		<input
+          wire:model.debounce500ms="search"
+          class="nav-search-box__text"
+          type="text" placeholder="Search movies"
+          @focus="isOpen = true"
+          @keydown.escape.window="isOpen = false"
+          @keydown.shift.tab="isOpen = false"
+          @keydown="isOpen = true"
+          >
 		<a class="nav-search-box__btn" href="#"><i class="fa fa-search"></i></a>
 
     <div wire:loading class="spinner top-0 left-0 ml-4 mt-4"></div>
     @if (strlen($search) >= 2)
-      <div class="bg-primary-light absolute rounded w-61 md:w-61 lg:w-62 mt-8 lg:mt-10">
+      <div
+          class="bg-primary-light absolute rounded w-61 md:w-61 lg:w-62 mt-8 lg:mt-10"
+          x-show.transition.opacity="isOpen">
         @if ($results->count() > 0)
           <ul class="text-white">
             @foreach ($results as $result)

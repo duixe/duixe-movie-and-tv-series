@@ -21,6 +21,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <livewire:styles>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </head>
 <body class="font-sans bg-gray-100 text-gray-900">
 
@@ -31,6 +32,6 @@
             @yield('content')
           </div>
         </main>
-    <livewire:scripts> 
+    <livewire:scripts>
 </body>
 </html>
