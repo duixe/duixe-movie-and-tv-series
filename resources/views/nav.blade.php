@@ -38,8 +38,5 @@
 			<li><a href="#">Actors</a></li>
 		</ul>
 	</div>
-	<div class="nav-search-box">
-		<input class="nav-search-box__text" type="text" placeholder="Search movies">
-		<a class="nav-search-box__btn" href="#"><i class="fa fa-search"></i></a>
-	</div>
+	<livewire:search-dropdown />
 </nav>

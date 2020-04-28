@@ -20,6 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <livewire:styles>
 </head>
 <body class="font-sans bg-gray-100 text-gray-900">
 
@@ -30,5 +31,6 @@
             @yield('content')
           </div>
         </main>
+    <livewire:scripts> 
 </body>
 </html>

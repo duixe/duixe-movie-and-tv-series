@@ -123,6 +123,7 @@
 }
 
 .nav-search-box {
+  position: relative;
   background-color: #1a3b54;
   height: 2.3rem;
   border-radius: 2.5rem;
@@ -138,7 +139,17 @@
 @media (min-width: 1024px) {
   .nav-search-box:hover > .nav-search-box__text {
     width: 13rem;
-    padding: 0 1rem;
+    padding: 0 2rem;
+  }
+
+  .nav-search-box:active > .nav-search-box__text {
+    width: 13rem;
+    padding: 0 2rem;
+  }
+
+  .nav-search-box:focus > .nav-search-box__text {
+    width: 13rem;
+    padding: 0 2rem;
   }
 }
 
@@ -152,6 +163,18 @@
   transition: all 0.4s ease;
   line-height: 2.2rem;
   width: 0rem;
+}
+
+@media (min-width: 1024px) {
+  .nav-search-box__text:active {
+    width: 13rem;
+    padding: 0 2rem;
+  }
+
+  .nav-search-box__text:focus {
+    width: 13rem;
+    padding: 0 2rem;
+  }
 }
 
 @media (max-width: 56.25em) {
@@ -195,10 +218,14 @@
   transform: rotate(45deg) translate(-5px, -6px);
 }
 
+.spinner {
+  position: absolute !important;
+}
+
 .home-container {
   background-image: linear-gradient(rgba(3, 37, 65, 0.75), rgba(26, 59, 84, 0.65)), url(/images/bg-3.jpg?92bf429f55da0cc5e8162f226af19df4);
   background-position: top;
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   height: 60vh !important;
 }
@@ -209,6 +236,13 @@
   padding: 4rem 1rem 2rem;
 }
 
+@media (max-width: 56.25em) {
+  .home-container__text {
+    width: 90%;
+    padding: 5.5rem 1rem 2rem;
+  }
+}
+
 .home-container__text h1 {
   font-family: "Source Sans Pro", sans-serif !important;
   color: #fff !important;
@@ -217,12 +251,26 @@
   letter-spacing: 0.5rem;
 }
 
+@media (max-width: 56.25em) {
+  .home-container__text h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0.2rem;
+  }
+}
+
 .home-container__text h3 {
   font-family: "Source Sans Pro", sans-serif !important;
   color: #fff !important;
   font-weight: 900 !important;
   font-size: 2.3rem;
   letter-spacing: 0.5rem;
+}
+
+@media (max-width: 56.25em) {
+  .home-container__text h3 {
+    font-size: 1.1rem;
+    letter-spacing: 0.2rem;
+  }
 }
 
 .movie-info {

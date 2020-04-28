@@ -94,6 +94,7 @@
 
 
   &-search-box {
+    position: relative;
     background-color: $color-primary-light;
     height: 2.3rem;
     border-radius: 2.5rem;
@@ -107,7 +108,17 @@
     @media(min-width: 1024px) {
       &:hover > .nav-search-box__text {
         width: 13rem;
-        padding: 0 1rem;
+        padding: 0 2rem;
+      }
+
+      &:active > .nav-search-box__text {
+        width: 13rem;
+        padding: 0 2rem;
+      }
+
+      &:focus > .nav-search-box__text {
+        width: 13rem;
+        padding: 0 2rem;
       }
     }
     &__text {
@@ -122,6 +133,18 @@
       transition: all .4s ease;
       line-height: 2.2rem;
       width: 0rem;
+
+      @media(min-width: 1024px) {
+        &:active {
+          width: 13rem;
+          padding: 0 2rem;
+        }
+
+        &:focus {
+          width: 13rem;
+          padding: 0 2rem;
+        }
+      }
 
       @include respond(tab-port) {
         width: 7rem;
@@ -162,4 +185,8 @@
 
 .navRotate .line3 {
   transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.spinner {
+  position: absolute !important;
 }
