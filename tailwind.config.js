@@ -2,7 +2,12 @@ module.exports = {
   theme: {
     extend: {
       width: {
-        '96': '21rem'
+        '70': '30rem',
+        '96': '55rem',
+        '90': '21rem'
+      },
+      height: {
+        '70': '45rem',
       },
       spacing: {
         '60': '7rem',
