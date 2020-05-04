@@ -34,7 +34,7 @@
 		</div>
 		<ul class="nav-links">
 			<li><a href="{{ route('movies.index') }}">Movies</a></li>
-			<li><a href="#">TV Shows</a></li>
+			<li><a href="{{ route('tvseries.index') }}">TV Shows</a></li>
 			<li><a href="{{ route('people.index') }}">People</a></li>
 		</ul>
 	</div>

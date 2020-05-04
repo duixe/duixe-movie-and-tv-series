@@ -45,10 +45,10 @@
         <div class="people-grid__knownfor">
           @foreach ($knownFor as $movie)
           <div class="mt-4">
-            <a href="{{ route('movies.show', $movie['id']) }}">
+            <a href="{{ $movie['tvOrMovieLink'] }}">
               <img class="rounded-lg hover:opacity-75 transition ease-in-out duration-150" src="{{ $movie['poster_path'] }}" alt="{{ $movie['title']. 'jpg' }}">
             </a>
-            <a href="{{ route('movies.show', $movie['id']) }}" class="text-lg mt-2 hover:text-gray-700">{{ $movie['title']}}</a>
+            <a href="{{ $movie['tvOrMovieLink'] }}" class="text-lg mt-2 hover:text-gray-700">{{ $movie['title']}}</a>
           </div>
         @endforeach
         </div>
