@@ -45,6 +45,11 @@
 
 .movie-info {
   margin-top: 5.5rem;
+
+  @media(max-width: 900px) {
+    background-image: none !important;
+  }
+
   &__img {
     @-moz-document url-prefix() {
       min-width: 300px !important;

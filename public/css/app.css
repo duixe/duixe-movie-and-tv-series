@@ -279,6 +279,12 @@
   margin-top: 5.5rem;
 }
 
+@media (max-width: 900px) {
+  .movie-info {
+    background-image: none !important;
+  }
+}
+
 @-moz-document url-prefix()  {
   .movie-info__img {
     min-width: 300px !important;

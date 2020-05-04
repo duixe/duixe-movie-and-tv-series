@@ -84,9 +84,7 @@
       </table> --}}
       <ul class="shadow-md px-4 py-2 mt-6 mx-auto">
         @foreach ($credits as $credit)
-          <li>
-            {{ $credit['release_year'] }} -- <strong>{{ $credit['title'] }}</strong> as {{ $credit['character'] }}
-          </li>
+          <li class="my-2">{{ $credit['release_year'] }} -- <strong>{{ $credit['title'] }}</strong> as {{ $credit['character'] }}</li>
         @endforeach
       </ul>
     </div>

@@ -1,13 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
   {{-- MOVIE INFO --}}
-  <div class="movie-info">
+  <div class="movie-info" style="background-image: linear-gradient(to right, rgba(19.61%, 7.84%, 7.84%, 1.00) 150px, rgba(27.45%, 13.73%, 13.73%, 0.84) 100%),
+  url('{{ $movie['bg-mid'] }}');">
     <div class="container mx-auto px-4 py-16 border-b border-gray-800 flex flex-col md:flex-row">
       <img src="{{ $movie['poster_path'] }}" alt="" class="rounded movie-info__img w-64 md:w-90">
       <div class="md:ml-24 py-10 movie-info__details">
-        <h2 class="text-4xl">{{ $movie['title'] }}</h2>
-        <div class="flex flex-wrap items-center text-gray-600 text-sm">
+        <h2 class="text-4xl lg:text-white">{{ $movie['title'] }}</h2>
+        <div class="flex flex-wrap items-center text-gray-600 lg:text-gray-500 text-sm">
           <svg class="fill-current text-orange-500 w-4" viewBox="0 0 24 24"><g data-name="Layer 2"><path d="M17.56 21a1 1 0 01-.46-.11L12 18.22l-5.1 2.67a1 1 0 01-1.45-1.06l1-5.63-4.12-4a1 1 0 01-.25-1 1 1 0 01.81-.68l5.7-.83 2.51-5.13a1 1 0 011.8 0l2.54 5.12 5.7.83a1 1 0 01.81.68 1 1 0 01-.25 1l-4.12 4 1 5.63a1 1 0 01-.4 1 1 1 0 01-.62.18z" data-name="star"/></g></svg>
           <span class="ml-1">{{ $movie['vote_average'] }}</span>
           <span class="mx-2">|</span>
@@ -16,17 +17,17 @@
           <span>{{ $movie['genres'] }}</span>
         </div>
 
-        <p class="text-gray-600 mt-8">
+        <p class="text-gray-600 lg:text-gray-500 mt-8">
           {{ $movie['overview']}}
         </p>
 
         <div class="mt-12">
-          <h4 class="text-gray-700">Featured Crew</h4>
+          <h4 class="text-gray-600">Featured Crew</h4>
           <div class="flex mt-4">
             @foreach ($movie['crew'] as $crew)
                 <div class="mr-8">
-                  <div>{{ $crew['name'] }}</div>
-                  <p class="text-sm text-gray-500">{{ $crew['job'] }}</p>
+                  <div class="text-gray-600 lg:text-white">{{ $crew['name'] }}</div>
+                  <p class="text-sm text-gray-500 md:text-gray-600">{{ $crew['job'] }}</p>
                 </div>
             @endforeach
           </div>
@@ -73,12 +74,14 @@
   </div>
   {{-- END OF MOVIE INFO --}}
 
-  {{-- CAST --}}
-  <div class="movie-cast">
-    <div class="container px-4 py-16 border-b border-gray-800">
-      <h2 class="text-4xl font-semibold">Cast</h2>
-      <div class="movie-cast__grid pb-4">
-        @foreach ($movie['cast'] as $cast)
+
+  <div class="container mx-auto">
+    {{-- CAST --}}
+    <div class="movie-cast">
+      <div class="container px-4 py-16 border-b border-gray-800">
+        <h2 class="text-4xl font-semibold">Cast</h2>
+        <div class="movie-cast__grid pb-4">
+          @foreach ($movie['cast'] as $cast)
             <div class="mt-8 shadow-md rounded-lg">
               <a href="{{ route('people.show', $cast['id']) }}">
                 <img class="rounded-t-lg hover:opacity-75 transition ease-in-out duration-150" src="{{ $cast['profile_path'] ? 'https://image.tmdb.org/t/p/w300'.$cast['profile_path'] : 'https://ui-avatars.com/api/?size=235&name='.$cast['name'] }}" alt="{{ $cast['name'] }}">
@@ -90,23 +93,23 @@
                 </div>
               </div>
             </div>
-        @endforeach
+          @endforeach
+        </div>
       </div>
     </div>
-  </div>
-  {{-- END OF MOVIE CAST --}}
+    {{-- END OF MOVIE CAST --}}
 
-  {{-- MOVIE IMAGES --}}
-  <div class="movie-images" x-data="{ isOpen: false, image: '' }">
-    <div class="container px-4 py-16">
-      <h2 class="text-4xl font-semibold">Images</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-        @foreach ($movie['images'] as $image)
-          <div class="mt-8 shadow-md rounded-lg">
-            <a
+    {{-- MOVIE IMAGES --}}
+    <div class="movie-images" x-data="{ isOpen: false, image: '' }">
+      <div class="container px-4 py-16">
+        <h2 class="text-4xl font-semibold">Images</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+          @foreach ($movie['images'] as $image)
+            <div class="mt-8 shadow-md rounded-lg">
+              <a
               @click.prevent=" isOpen = true
-                                image = '{{ 'https://image.tmdb.org/t/p/original/'.$image['file_path'] }}'
-                             "
+              image = '{{ 'https://image.tmdb.org/t/p/original/'.$image['file_path'] }}'
+              "
               href="#">
               <img class="hover:opacity-75 transition ease-in-out duration-150" src="{{ 'https://image.tmdb.org/t/p/w500/'.$image['file_path'] }}" alt="">
             </a>
@@ -114,24 +117,26 @@
         @endforeach
       </div>
       <div
-         style="background-color: rgba(0, 0, 0, .5);"
-         class="fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto"
-         x-show="isOpen">
-         <div class="container mx-auto lg:px-32 rounded-lg overflow-y-auto">
-           <div class="bg-gray-900 rounded">
-               <div class="flex justify-end pr-4 pt-2">
-                   <button
-                       @click="isOpen = false"
-                       @keydown.escape.window="isOpen = false"
-                       class="text-3xl text-white leading-none hover:text-gray-300">&times;
-                   </button>
-               </div>
-               <div class="modal-body px-8 py-8">
-                   <img :src="image" alt="poster-image">
-               </div>
-           </div>
-         </div>
+      style="background-color: rgba(0, 0, 0, .5);"
+      class="fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto"
+      x-show="isOpen">
+      <div class="container mx-auto lg:px-32 rounded-lg overflow-y-auto">
+        <div class="bg-gray-900 rounded">
+          <div class="flex justify-end pr-4 pt-2">
+            <button
+            @click="isOpen = false"
+            @keydown.escape.window="isOpen = false"
+            class="text-3xl text-white leading-none hover:text-gray-300">&times;
+          </button>
+        </div>
+        <div class="modal-body px-8 py-8">
+          <img :src="image" alt="poster-image">
+        </div>
       </div>
     </div>
   </div>
+</div>
+</div>
+  </div>
+
 @endsection
