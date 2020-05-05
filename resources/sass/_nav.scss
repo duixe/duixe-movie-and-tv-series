@@ -108,7 +108,7 @@
     @media(min-width: 1024px) {
       &:hover > .nav-search-box__text {
         width: 13rem;
-        padding: 0 2rem;
+        padding: 0 1.8rem;
       }
 
       &:active > .nav-search-box__text {
@@ -137,7 +137,8 @@
       @media(min-width: 1024px) {
         &:active {
           width: 13rem;
-          padding: 0 2rem;
+          padding: 0 1.5rem;
+          font-size: 1.2rem;
         }
 
         &:focus {

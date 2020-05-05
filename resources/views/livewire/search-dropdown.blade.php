@@ -2,7 +2,7 @@
 		<input
           wire:model.debounce500ms="search"
           class="nav-search-box__text"
-          type="text" placeholder="Search movies"
+          type="text" placeholder="movies/tvshows/peo..."
           @focus="isOpen = true"
           @keydown.escape.window="isOpen = false"
           @keydown.shift.tab="isOpen = false"
@@ -19,14 +19,28 @@
           <ul class="text-white">
             @foreach ($results as $result)
               <li class="border-b border-gray-700">
-                <a href="{{ route('movies.show', $result['id'])}}" class="block hover:bg-gray-700 px-3 py-3 flex items-center">
-                  @if ($result['poster_path'])
-                    <img class="w-8" src="https://image.tmdb.org/t/p/w92/{{ $result['poster_path'] }}" alt="{{ $result['title'] }}">
-                  @else
-                    <img src="https://via.placeholder.com/50X70" alt="{{ $result['title'] }}" class="w-8">
-                  @endif
-                  <span>{{ $result['title'] }}</span>
-                </a>
+                @if ($result['media_type'] == 'movie')
+                  <a href="{{ route('movies.show', $result['id'])}}" class="block hover:bg-gray-700 px-3 py-3 flex items-center">
+
+                    <img class="w-8 mr-2" src="https://image.tmdb.org/t/p/w92/{{ $result['poster_path'] }}" alt="">
+
+                    <span>{{ $result['title'] }}</span>
+                  </a>
+                @elseif ($result['media_type'] == 'tv')
+                  <a href="{{ route('tvseries.show', $result['id'])}}" class="block hover:bg-gray-700 px-3 py-3 flex items-center">
+
+                    <img class="w-8 mr-2" src="https://image.tmdb.org/t/p/w92/{{ $result['poster_path'] }}" alt="">
+
+                    <span>{{ $result['title'] }}</span>
+                  </a>
+                @else
+                  <a href="{{ route('people.show', $result['id'])}}" class="block hover:bg-gray-700 px-3 py-3 flex items-center">
+
+                    <img class="w-8 mr-2" src="https://image.tmdb.org/t/p/w92/{{ $result['poster_path'] }}" alt="">
+
+                    <span>{{ $result['title'] }}</span>
+                  </a>
+                @endif
               </li>
             @endforeach
           </ul>
