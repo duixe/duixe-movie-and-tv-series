@@ -42,7 +42,7 @@ class SearchDropdown extends Component
             'title' => $name,
             'poster_path' => $pic_path
           ]);
-        })->take(6);
+        })->take(10);
 
         // \dump($searchResults);
 
