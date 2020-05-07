@@ -4,7 +4,7 @@
 	<div class="container mx-auto px-6 pt-10 home-container">
 		<div class="home-container__text">
 			<h1>Welcome</h1>
-			<h3 >Millions of Movies, TV Shows and people to discover, Explore more </h3>
+			<h3 >Explore and discover Millions of Movies, Tv Shows and People...</h3>
 		</div>
 	</div>
 
