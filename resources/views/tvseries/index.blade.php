@@ -12,7 +12,7 @@
 		{{-- POPULAR TV SERIES --}}
 		<div class="popular-tvseries">
 			<h2 class="upper-case tracking-wider text-gray-700 text-lg font-semibold">Popular TV Shows</h2>
-			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+			<div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
 				@foreach ($famousTv as $tvshow)
 					<x-tv-series-card :tvshow="$tvshow" :genres="$genres"/>
 				@endforeach
@@ -25,7 +25,7 @@
     {{-- NOW PLAYING --}}
 		<div class="nowplaying-movies py-24">
 			<h2 class="upper-case tracking-wider text-gray-700 text-lg font-semibold">Top Rated Tv Shows</h2>
-			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+			<div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
 				@foreach ($topRatedTv as $tvshow)
 					<x-tv-series-card :tvshow="$tvshow"/>
 				@endforeach

@@ -12,7 +12,7 @@
 		{{-- POPULAR MOVIES --}}
 		<div class="popular-movies">
 			<h2 class="upper-case tracking-wider text-gray-700 text-lg font-semibold">Popular Movies</h2>
-			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+			<div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
 				@foreach ($famousMovies as $popularMovie)
 					<x-movie-card :popularMovie="$popularMovie" :genres="$genres"/>
 				@endforeach
@@ -25,7 +25,7 @@
     {{-- NOW PLAYING --}}
 		<div class="nowplaying-movies py-24">
 			<h2 class="upper-case tracking-wider text-gray-700 text-lg font-semibold">Now Playing</h2>
-			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+			<div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
 				@foreach ($nowPlayingMovies as $popularMovie)
 					<x-movie-card :popularMovie="$popularMovie"/>
 				@endforeach
