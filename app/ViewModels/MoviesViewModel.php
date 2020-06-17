@@ -43,13 +43,21 @@ class MoviesViewModel extends ViewModel
           return [$val => $this->genres()->get($val)];
         })->implode(', ');
 
+        if (isset($popularMovie['release_date'])) {
+          $releaseDate = $popularMovie['release_date'];
+        }else {
+          $releaseDate = null;
+        }
+
         return \collect($popularMovie)->merge([
           'poster_path' => 'https://image.tmdb.org/t/p/w500/'.$popularMovie['poster_path'],
           'vote_average' => $popularMovie['vote_average'] * 10 .'%',
-          'release_date' => Carbon::parse( $popularMovie['release_date'])->format('M d, Y'),
+          // 'release_date' => $popularMovie['release_date'] ? Carbon::parse( $popularMovie['release_date'])->format('M d, Y') : null,
+          'release_date' => Carbon::parse($releaseDate)->format('M d, Y'),
           'genres' => $parsedGenres
 
         ]) ;
+
       });
     }
 }
